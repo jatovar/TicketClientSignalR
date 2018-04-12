@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Cabina</title>
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.2.6/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.2.6/css/dx.light.css" />
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/17.1.7/js/dx.all.js"></script>
+    <!--SignalR-->
+    <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.min.js"></script>
+    
+    <body style="overflow-y: scroll">
+    <div id="button">
+        </div>
+    <div id="gridTickets" style="height: 300px; max-height: 50%;">
+    </div>
+    <script type="text/javascript">
+        if (typeof Promise === 'undefined') {
+            document.write('<script type="text/javascript" src="scripts/signalr-clientES5-1.0.0-alpha2-final.min.js"><\/script>');
+        }
+        else {
+            document.write('<script type="text/javascript" src="scripts/signalr-client-1.0.0-alpha2-final.min.js"><\/script>');
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
