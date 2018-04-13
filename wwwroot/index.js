@@ -1,3 +1,5 @@
+var USUARIO_LOGIN = "Anonimo"
+
 let connection = new signalR.HubConnection("https://sepsignalr.azurewebsites.net/MesaDeTicketsHub");
 connection.start().then(function () {
     connection.invoke("ObtieneTickets").then(function (tickets) {
@@ -83,10 +85,10 @@ $(function () {
                     var estatus = options.data.status;
                     var operador = options.data.atendidoPor;
                     if (estatus == 1) //Siniestros activos
-                        var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="asignaSiniestro(this);">Atender</button>';
+                        var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="asigna(this);">Atender</button>';
                     else {                //Siniestros EA en atención                
-                        if (operador == "Jorge") {
-                            var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="liberaSiniestro(this);">Liberar</button>';
+                        if (operador ==  USUARIO_LOGIN) {
+                            var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="libera(this);">Liberar</button>';
                         } else {
                             var content = '<button disabled data-id="' + id + '" type= "button" class = "btn btn-default" ">En atención..</button>';
                         }
@@ -106,21 +108,21 @@ $(function () {
 });
 
 
-function asignaSiniestro(e) {
+function asigna(e) {
     console.log($(e).data('id'));
     $(e).text('Asignando...');
     $(e).prop('disabled', true);
 
-    connection.invoke("CambiaEstadoTicket",$(e).data('id'), "Jorge", 2).then(function () {
+    connection.invoke("CambiaEstadoTicket",$(e).data('id'), USUARIO_LOGIN, 2).then(function () {
 
     });
 }
 
-function liberaSiniestro(e) {
+function libera(e) {
     $(e).text('Liberando...');
     $(e).prop('disabled', true);
 
-    connection.invoke("CambiaEstadoTicket",$(e).data('id'), "Jorge", 1).then(function () {
+    connection.invoke("CambiaEstadoTicket",$(e).data('id'), USUARIO_LOGIN, 1).then(function () {
 
     });
 }
