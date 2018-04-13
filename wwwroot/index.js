@@ -16,7 +16,7 @@ connection.on("refrescaTickets", function (tickets) {
 });
 
 $(function () {
-
+    /*
     $(function () {
         $("#button").dxButton({
             text: 'Nuevo Ticket',
@@ -27,7 +27,7 @@ $(function () {
             }
         });
     });
-
+    */
     $('#gridTickets').dxDataGrid({
         loadPanel: {
             enabled: true,
@@ -46,7 +46,7 @@ $(function () {
         noDataText: "Aún no hay tickets",
         columns: [
             { caption: "Id", dataField: "id"},
-            { caption: "AtendidoPor", dataField: "Cambiado por", },
+            { caption: "Cambiado Por", dataField: "atendidoPor", },
             { caption: "UsuarioReporte", dataField: "usuarioReporte", },
             { caption: "Fecha", dataField: "fecha", dataType: 'datetime', format: 'dd/MM/yyyy hh:mm:ssa' },
             { caption: "Motivo", dataField: "motivo", },
@@ -74,6 +74,26 @@ $(function () {
                 },
                 dataField: "status",
             },
+            {
+                caption: "",
+                alignment: "center",
+                cellTemplate: function (container, options) {
+
+                    var id = options.data.id;
+                    var estatus = options.data.status;
+                    var operador = options.data.atendidoPor;
+                    if (estatus == 1) //Siniestros activos
+                        var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="asignaSiniestro(this);">Atender</button>';
+                    else {                //Siniestros EA en atención                
+                        if (operador == "Jorge") {
+                            var content = '<button data-id="' + id + '" type= "button" class = "btn btn-default" onclick="liberaSiniestro(this);">Liberar</button>';
+                        } else {
+                            var content = '<button disabled data-id="' + id + '" type= "button" class = "btn btn-default" ">En atención..</button>';
+                        }
+                    }
+                    container.append(content);
+                }
+            },
            ],
         onRowPrepared: function (info) {
 
@@ -84,3 +104,23 @@ $(function () {
 
    
 });
+
+
+function asignaSiniestro(e) {
+    console.log($(e).data('id'));
+    $(e).text('Asignando...');
+    $(e).prop('disabled', true);
+
+    connection.invoke("CambiaEstadoTicket",$(e).data('id'), "Jorge", 2).then(function () {
+
+    });
+}
+
+function liberaSiniestro(e) {
+    $(e).text('Liberando...');
+    $(e).prop('disabled', true);
+
+    connection.invoke("CambiaEstadoTicket",$(e).data('id'), "Jorge", 1).then(function () {
+
+    });
+}

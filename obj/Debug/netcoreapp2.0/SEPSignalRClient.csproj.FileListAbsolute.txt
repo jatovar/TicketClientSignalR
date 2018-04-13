@@ -1,0 +1,10 @@
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/bin/Debug/netcoreapp2.0/SEPSignalRClient.deps.json
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/bin/Debug/netcoreapp2.0/SEPSignalRClient.runtimeconfig.json
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/bin/Debug/netcoreapp2.0/SEPSignalRClient.runtimeconfig.dev.json
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/bin/Debug/netcoreapp2.0/SEPSignalRClient.dll
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/bin/Debug/netcoreapp2.0/SEPSignalRClient.pdb
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/obj/Debug/netcoreapp2.0/SEPSignalRClient.csproj.CoreCompileInputs.cache
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/obj/Debug/netcoreapp2.0/SEPSignalRClient.AssemblyInfoInputs.cache
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/obj/Debug/netcoreapp2.0/SEPSignalRClient.AssemblyInfo.cs
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/obj/Debug/netcoreapp2.0/SEPSignalRClient.dll
+/Users/administrador/Documents/SEPWebProjects/SEP.Capacitacion.Signalr/SEPSignalRClient/obj/Debug/netcoreapp2.0/SEPSignalRClient.pdb
